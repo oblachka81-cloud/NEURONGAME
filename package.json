@@ -1,0 +1,42 @@
+<div style="background: #0a0f1a; border-radius: 16px; padding: 16px; margin: 20px 0; border: 1px solid #00ffff33;">
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+    <span style="color: #00ffff; font-weight: 600; font-family: monospace;">📦 package.json</span>
+    <button onclick="copyToClipboardPkg()" style="background: #00ccff22; border: 1px solid #00ffff; border-radius: 40px; padding: 6px 14px; color: #00ffff; cursor: pointer; font-size: 14px; display: flex; align-items: center; gap: 6px;">
+      📋 Копировать
+    </button>
+  </div>
+  <pre id="pkgContent" style="background: #00000055; padding: 12px; border-radius: 12px; overflow-x: auto; font-size: 12px; color: #ccddff; max-height: 300px; overflow-y: auto;">{
+  "name": "neuron-bot",
+  "version": "1.0.0",
+  "description": "NEURON Telegram Bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "telegraf": "^4.15.3",
+    "pg": "^8.11.0"
+  },
+  "license": "MIT"
+}</pre>
+</div>
+
+<script>
+function copyToClipboardPkg() {
+  const content = document.getElementById('pkgContent').innerText;
+  navigator.clipboard.writeText(content).then(() => {
+    const btn = event.target.closest('button');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '✅ Скопировано!';
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+    }, 2000);
+  }).catch(() => {
+    alert('Не удалось скопировать');
+  });
+}
+</script>
