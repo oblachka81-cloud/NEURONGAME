@@ -527,7 +527,7 @@ function initTonConnect() {
   if (tonConnectUI) return;
   try {
     if (typeof TON_CONNECT_UI === 'undefined') return;
-    tonConnectUI = new TON_CONNECT_UI.TonConnectUI({ manifestUrl: 'https://neuronl.bothost.tech/tonconnect-manifest.json' });
+    tonConnectUI = new TON_CONNECT_UI.TonConnectUI({ manifestUrl: 'https://neuron1.bothost.tech/tonconnect-manifest.json' });
     tonConnectUI.onStatusChange(wallet => {
       if (currentTab === 'wallet') showWalletPanel();
       else if (document.querySelector('.welcome-card')) showWelcome(currentState.totalScore, currentState.gamesPlayed||0);
